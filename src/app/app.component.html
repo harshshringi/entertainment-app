@@ -1,0 +1,13 @@
+<div id='main' class='container-fluid'>
+  <div *ngIf='!selectedEntityType'>
+    <div>
+      <div id='profile'>HS</div>
+      <h1>My Things</h1>
+    </div>
+    <div *ngFor="let entityType of getData()" class='typeControl' [class.transitionOut]='isSelected'>
+      <app-entity-type-control #typeControl [entityType]='entityType' [list]='data[entityType]'
+        (click)='onEntitySelect()'></app-entity-type-control>
+    </div>
+  </div>
+  <app-entity-type *ngIf='selectedEntityType' [entityType]='selectedEntityType' [list]='data[selectedEntityType]'></app-entity-type>
+</div>
